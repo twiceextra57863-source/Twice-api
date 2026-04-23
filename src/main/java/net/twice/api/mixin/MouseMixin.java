@@ -16,9 +16,7 @@ public class MouseMixin {
     @Inject(method = "updateMouse", at = @At("TAIL"))
     private void onUpdateMouse(CallbackInfo ci) {
         if (TwiceApi.CONFIG != null && TwiceApi.CONFIG.optimizeCamera) {
-            // Apply smoothing or capping at the end of calculation
-            if (Math.abs(cursorDeltaX) > 500) cursorDeltaX = Math.signum(cursorDeltaX) * 500;
-            if (Math.abs(cursorDeltaY) > 500) cursorDeltaY = Math.signum(cursorDeltaY) * 500;
+            // Placeholder for actual smoothing logic if needed, removed crude cap.
         }
     }
 }

@@ -15,9 +15,11 @@ public class TwiceConfig {
 
     public boolean optimizeCamera = true;
     public boolean optimizeEntities = true;
-    public boolean optimizeChunks = true;
     public boolean optimizeParticles = true;
+    public boolean optimizeChunks = true;
     public boolean optimizeNameplates = true;
+    public int entityCullDistance = 128;
+    public int maxParticles = 2000;
 
     public static TwiceConfig load() {
         if (CONFIG_FILE.exists()) {

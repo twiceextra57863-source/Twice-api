@@ -17,7 +17,9 @@ public class EntityRenderDispatcherMixin {
     private <E extends Entity> void onShouldRender(E entity, Frustum frustum, double x, double y, double z, CallbackInfoReturnable<Boolean> cir) {
         if (TwiceApi.CONFIG != null && TwiceApi.CONFIG.optimizeEntities) {
             if (!(entity instanceof PlayerEntity) && !(entity instanceof ProjectileEntity)) {
-                if (x*x + y*y + z*z > 4096) { // 64 blocks
+                double distSq = x*x + y*y + z*z;
+                double cullDist = TwiceApi.CONFIG.entityCullDistance;
+                if (distSq > (cullDist * cullDist)) {
                     cir.setReturnValue(false);
                 }
             }

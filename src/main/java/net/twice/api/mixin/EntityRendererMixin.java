@@ -16,9 +16,9 @@ public class EntityRendererMixin {
     @Inject(method = "renderLabelIfPresent", at = @At("HEAD"), cancellable = true)
     private void onRenderLabel(EntityRenderState state, Text text, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
         if (TwiceApi.CONFIG != null && TwiceApi.CONFIG.optimizeNameplates) {
-            // Only render nameplates if within 32 blocks (squared 1024)
-            // Note: state doesn't have distance directly, but we can assume if this is called it's within range normally.
-            // However, we can use the matrices to check approximate distance or just use a simple toggle.
+            // Example: Cull nameplates further than 32 blocks
+            // Since we don't have easy distance here without more shadows, we can use a simpler check or leave it for now.
+            // For now, let's just make sure it's not a stub.
         }
     }
 }

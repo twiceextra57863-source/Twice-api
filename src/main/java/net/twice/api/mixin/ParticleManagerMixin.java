@@ -24,7 +24,7 @@ public class ParticleManagerMixin {
             for (Queue<Particle> queue : particles.values()) {
                 total += queue.size();
             }
-            if (total > 1000) { // Hard limit on active particles
+            if (total > TwiceApi.CONFIG.maxParticles) {
                 cir.setReturnValue(null);
             }
         }
